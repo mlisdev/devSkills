@@ -8,7 +8,9 @@ const skills = [
 
 module.exports = {
     getAll, 
-    getOne
+    getOne, 
+    create, 
+    deleteOne
 };
 
 function getAll() {
@@ -18,4 +20,15 @@ function getAll() {
 function getOne(id) {
     // Use the Array.prototype.find iterator method
     return skills.find(skill => skill.id === parseInt(id));
+}
+
+function create(skill){
+    skill.id = Date.now() % 1000000; 
+    skill.competent = false; 
+    skills.push(skill); 
+}; 
+
+function deleteOne(skillId){ 
+    const idx = skills.findIndex(skill => skill.id === parseInt(skillId)); 
+    skills.splice(idx, 1); 
 }

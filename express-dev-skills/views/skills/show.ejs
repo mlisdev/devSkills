@@ -3,12 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <title>Express To-Do</title>
+    </head>
+
 <body>
-        <h1>Skill #<%= skillNum %></h1>
-        <h3><%= skill.skill %></h3>
-        <h3>Complete: <%= skill.competent ? 'Competent' : 'Not Competent' %></h3>
-    
-</body>
+    <a href="/">Home</a> | <a href="/skills">Skill List</a>
+    <h1>Skill #<%= skillNum %></h1>
+    <h3><%= skill.skill %></h3>
+    <h3>Competent?: <%= skill.competent ? 'Yes' : 'No' %></h3>
+    <form action="/skills/<%= skill.id %>?_method=DELETE" method="POST" class="delete-form">
+        <button type="submit">Delete Skill</button>
+    </form>
 </html>
